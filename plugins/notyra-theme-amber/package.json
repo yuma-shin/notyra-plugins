@@ -1,0 +1,22 @@
+{
+  "name": "notyra-theme-amber",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Amber theme for Notyra, with light and dark palettes",
+  "author": "Yuma Shintani",
+  "license": "MIT",
+  "packageManager": "pnpm@12.15.0",
+  "scripts": {
+    "build": "node ../../scripts/validate-theme.mjs .",
+    "typecheck": "node ../../scripts/validate-theme.mjs .",
+    "test": "node ../../scripts/validate-theme.mjs .",
+    "package": "node ../../scripts/validate-theme.mjs . && node ../../scripts/package-plugin.mjs ."
+  },
+  "notyra": {
+    "displayName": "Amber Theme / アンバー",
+    "type": "theme",
+    "notyraVersion": "^3.1.7",
+    "theme": "theme.json",
+    "themeCss": "theme.css"
+  }
+}

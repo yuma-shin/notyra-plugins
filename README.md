@@ -1,25 +1,59 @@
-# Notyra Plugins
+# Notyra Official Plugins
 
-Official plugin registry and the Table of Contents plugin for Notyra 3.1.7 or later.
+Official plugins and registry in one repository. The former Notyra-Theme collection is maintained here as installable theme plugins.
 
-## Use / 使い方
+公式プラグインとレジストリを管理するリポジトリです。旧 Notyra-Theme のカスタムテーマは、このリポジトリのテーマプラグインへ統合しました。
 
-In **Settings → Plugins**, acknowledge the third-party notice and install **Table of Contents / 目次** from the registry. You can also enter `yuma-shin/notyra-plugins`. Open the side panel from the main window's title bar and select Table of Contents. Headings update as the active note changes; click one to scroll to its source line. The note window also loads the plugin, but currently only the main window displays the side panel.
+| Plugin | Source | Description |
+| --- | --- | --- |
+| Table of Contents / 目次 | `plugins/notyra-toc` | Live headings, click-to-line navigation, heading depth/H1/line-number settings |
+| Amber / アンバー | `plugins/notyra-theme-amber` | Warm amber, light/dark palettes |
+| Blue / ブルー | `plugins/notyra-theme-blue` | Ocean blue, light/dark palettes |
+| Emerald / エメラルド | `plugins/notyra-theme-emerald` | Green, light/dark palettes |
+| Rose / ローズ | `plugins/notyra-theme-rose` | Rose, light/dark palettes |
 
-**設定 → プラグイン** で注意事項を確認し、レジストリから **Table of Contents / 目次** をインストールしてください。`yuma-shin/notyra-plugins` の直接指定も使えます。メインウィンドウのタイトルバーでサイドパネルを開き、目次を選択します。ノート切り替え・編集で一覧が更新され、見出しのクリックで該当行へ移動します。
+Gray and Purple remain built into Notyra. Theme IDs use `notyra-<color>` to avoid colliding with previously imported JSON themes. Theme plugins execute no JavaScript and request no permissions.
 
-No permissions are requested: the plugin uses the active-note event and editor navigation. Set the maximum heading level, include H1 or show line numbers from the installed plugin's settings. Fenced code and blockquote headings are excluded; ATX and Setext headings and duplicate titles are supported.
+Gray・Purple は本体内蔵のままです。テーマ ID は既存の JSON インポートと重複しない `notyra-<色名>` を使います。テーマプラグインは JavaScript の実行・権限要求を行いません。
 
-権限の要求はありません。アクティブノート通知とエディタの行移動 API を使います。設定で深さ・H1 の有無・行番号を変更できます。コードブロックや引用内の見出しは除外します。
+## Install / インストール
 
-## Develop and release
+Use Settings → Plugins → Registry and select each plugin. After installing a theme, select its color in Settings → Appearance. ToC appears in the main window's side panel.
 
-Use Node 24 and pnpm 12.15.0. Run `pnpm install`, `pnpm typecheck`, `pnpm build`, `pnpm test`, then `pnpm package`. Load this folder in Notyra's Developer Mode after building. The API types are vendored from Notyra 3.1.7 so npm publication is not required for development.
+**設定 → プラグイン → レジストリ**から必要なものを個別にインストールします。テーマはインストール後、**設定 → 外観**で選択します。ToC はメインウィンドウのサイドパネルで使えます。
 
-`pnpm package` creates `notyra-plugin.zip` with `package.json` at its root. Push a version tag matching `package.json`, for example `v1.0.0`, to run the release workflow. The workflow validates the package before publishing the exact asset name required by Notyra. A tag alone is insufficient if the workflow has not succeeded.
+The host must support collection releases: registry installs and updates select `<plugin-id>.zip` from the latest GitHub Release. Entering only `yuma-shin/notyra-plugins` selects ToC through the legacy `notyra-plugin.zip` alias. Use the registry to choose a theme. Registry installation requires merged registry data and published Release assets.
+
+同じ Release にプラグインごとの `<plugin-id>.zip` を置く配布方式に対応した本体が必要です。リポジトリ名だけを直接指定した場合は、従来名の `notyra-plugin.zip` を使って ToC をインストールします。テーマはレジストリから選んでください。初回 Release の公開前は、開発者モードでローカルの配布物を確認できます。
+
+## Develop / 開発
+
+Use Node 24 and pnpm 12.15.0:
+
+```sh
+pnpm install --frozen-lockfile
+pnpm typecheck
+pnpm build
+pnpm test
+pnpm package
+```
+
+Load a built `plugins/<plugin-id>` folder in Developer Mode, or extract its ZIP into an empty folder and select that folder. The repository root is a private workspace and cannot be loaded as a plugin.
+
+ビルド後の `plugins/<プラグインID>`、または配布 ZIP を空フォルダへ展開したものを開発者モードで選択します。ルートは workspace 用なので、プラグインとしては読み込めません。
+
+ToC parses ATX/Setext headings, ignores fenced code and quoted headings, and navigates to the original source line. Its API types are vendored from Notyra 3.1.7; runtime imports use the host's virtual modules. No npm publication is required to build.
+
+## Release / 配布
+
+`pnpm package` generates `dist/<plugin-id>.zip` for every plugin and a default `dist/notyra-plugin.zip` alias for ToC. Each ZIP has its own root `package.json`; plugins install and update independently.
+
+Push a tag matching the root workspace version, currently `v1.0.0`. GitHub Actions runs typecheck/build/tests, checks registry/package identity and ZIP CRCs, and publishes all ZIPs to one Release. Root version tracks the collection Release; each plugin retains its own manifest version for update comparisons. Include every registered plugin in each Release so update checks can find all IDs.
+
+`pnpm package` は `dist/<プラグインID>.zip` を生成します。各 ZIP はルートにそれぞれの `package.json` を持ち、個別にインストール・停止・更新できます。ルートのバージョンと同じタグ（現在は `v1.0.0`）を push すると、検証後に全 ZIP を1つの Release へ公開します。ルートはコレクションの版、各プラグインの版は更新比較に使います。毎回、レジストリの全プラグインを Release に含めてください。
 
 ## Registry contributions
 
-Open a pull request editing `registry.json`. Every entry must contain string fields `id`, `name`, `description`, `author`, and `repo`; `id` must equal the package manifest's name. Each repository must publish its own latest Release with an asset called `notyra-plugin.zip`. Registry listing does not replace permission consent or imply that arbitrary code is sandboxed.
+Entries contain string fields `id`, `name`, `description`, `author`, and `repo`; `id` equals the package manifest's name. A repository can publish `<id>.zip` for multiple plugins or the legacy `notyra-plugin.zip` for one plugin. Registry listing does not replace permission consent.
 
 Development guide: https://notyra.snackpan.app/docs/plugins/

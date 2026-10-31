@@ -165,13 +165,27 @@ settings:
 importers:
 
   .:
+    devDependencies:
+      '@notyra/plugin-api':
+        specifier: file:vendor/plugin-api
+        version: file:vendor/plugin-api(@codemirror/commands@6.11.1)(@codemirror/language@6.13.1)(@codemirror/state@6.7.6)(@codemirror/view@6.43.15)(@lezer/highlight@1.2.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
+
+  plugins/notyra-theme-amber: {}
+
+  plugins/notyra-theme-blue: {}
+
+  plugins/notyra-theme-emerald: {}
+
+  plugins/notyra-theme-rose: {}
+
+  plugins/notyra-toc:
     dependencies:
       remark:
         specifier: 15.0.1
         version: 15.0.1
     devDependencies:
       '@notyra/plugin-api':
-        specifier: file:vendor/plugin-api
+        specifier: file:../../vendor/plugin-api
         version: file:vendor/plugin-api(@codemirror/commands@6.11.1)(@codemirror/language@6.13.1)(@codemirror/state@6.7.6)(@codemirror/view@6.43.15)(@lezer/highlight@1.2.5)(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@types/node':
         specifier: 26.6.5

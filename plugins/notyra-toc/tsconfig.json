@@ -8,11 +8,21 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowImportingTsExtensions": true,
-    "types": ["node"],
-    "lib": ["ES2022", "DOM"],
+    "types": [
+      "node"
+    ],
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
     "paths": {
-      "@notyra/plugin-api": ["./vendor/plugin-api/index.d.ts"]
+      "@notyra/plugin-api": [
+        "../../vendor/plugin-api/index.d.ts"
+      ]
     }
   },
-  "include": ["src/**/*.ts", "tests/**/*.ts"]
+  "include": [
+    "src/**/*.ts",
+    "tests/**/*.ts"
+  ]
 }
