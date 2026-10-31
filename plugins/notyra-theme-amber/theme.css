@@ -1,0 +1,3 @@
+/* Scoped additions: Notyra applies this CSS only while this plugin theme is selected. */
+.markdown-body a { text-underline-offset: 0.18em; }
+.markdown-body blockquote { border-inline-start-color: var(--theme-accent); }

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "notyra-toc",
+      "name": "Table of Contents / 目次",
+      "description": "Live Markdown headings and click-to-scroll navigation",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    },
+    {
+      "id": "notyra-theme-amber",
+      "name": "Amber Theme / アンバー",
+      "description": "Amber colors for light and dark modes",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    },
+    {
+      "id": "notyra-theme-blue",
+      "name": "Blue Theme / ブルー",
+      "description": "Blue colors for light and dark modes",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    },
+    {
+      "id": "notyra-theme-emerald",
+      "name": "Emerald Theme / エメラルド",
+      "description": "Emerald colors for light and dark modes",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    },
+    {
+      "id": "notyra-theme-rose",
+      "name": "Rose Theme / ローズ",
+      "description": "Rose colors for light and dark modes",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    }
+  ]
+}

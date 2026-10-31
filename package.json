@@ -1,0 +1,17 @@
+{
+  "name": "notyra-official-plugins",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "license": "MIT",
+  "packageManager": "pnpm@12.15.0",
+  "scripts": {
+    "typecheck": "pnpm --filter notyra-toc --filter notyra-theme-* --fail-if-no-match run typecheck",
+    "build": "pnpm --filter notyra-toc --filter notyra-theme-* --fail-if-no-match run build",
+    "test": "pnpm --filter notyra-toc --filter notyra-theme-* --fail-if-no-match run test && node scripts/package-all.mjs && node --test tests/*.test.mjs",
+    "package": "pnpm build && node scripts/package-all.mjs"
+  },
+  "devDependencies": {
+    "@notyra/plugin-api": "https://codeload.github.com/yuma-shin/notyra-plugin-api/tar.gz/3f15cc1f4d516081b1b3c6815239d5d8f59e22ba"
+  }
+}
