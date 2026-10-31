@@ -57,3 +57,5 @@ Push a tag matching the root workspace version, currently `v1.0.0`. GitHub Actio
 Entries contain string fields `id`, `name`, `description`, `author`, and `repo`; `id` equals the package manifest's name. A repository can publish `<id>.zip` for multiple plugins or the legacy `notyra-plugin.zip` for one plugin. Registry listing does not replace permission consent.
 
 Development guide: https://notyra.snackpan.app/docs/plugins/
+
+Publishing a GitHub Release also triggers packaging. If the Release already exists, the workflow uploads the ZIPs to it; otherwise it creates the Release. Re-running the job replaces assets with the validated packages for that tag. Jobs for the same tag run sequentially.
