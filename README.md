@@ -42,7 +42,7 @@ Load a built `plugins/<plugin-id>` folder in Developer Mode, or extract its ZIP 
 
 ビルド後の `plugins/<プラグインID>`、または配布 ZIP を空フォルダへ展開したものを開発者モードで選択します。ルートは workspace 用なので、プラグインとしては読み込めません。
 
-ToC parses ATX/Setext headings, ignores fenced code and quoted headings, and navigates to the original source line. Its API types are vendored from Notyra 3.1.7; runtime imports use the host's virtual modules. No npm publication is required to build.
+ToC parses ATX/Setext headings, ignores fenced code and quoted headings, and navigates to the original source line. Its API types come from the independent [notyra-plugin-api](https://github.com/yuma-shin/notyra-plugin-api) package at version 3.1.7; runtime imports use the host's virtual modules. Until the first npm publication, the dependency pins that repository's immutable commit tarball. No API source is vendored here. After publication, use exact npm version 3.1.7 in the root and ToC manifests and regenerate the lockfile.
 
 ## Release / 配布
 

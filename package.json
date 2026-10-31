@@ -12,6 +12,6 @@
     "package": "pnpm build && node scripts/package-all.mjs"
   },
   "devDependencies": {
-    "@notyra/plugin-api": "file:vendor/plugin-api"
+    "@notyra/plugin-api": "https://codeload.github.com/yuma-shin/notyra-plugin-api/tar.gz/3f15cc1f4d516081b1b3c6815239d5d8f59e22ba"
   }
 }

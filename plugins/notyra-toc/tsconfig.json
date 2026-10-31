@@ -14,12 +14,7 @@
     "lib": [
       "ES2022",
       "DOM"
-    ],
-    "paths": {
-      "@notyra/plugin-api": [
-        "../../vendor/plugin-api/index.d.ts"
-      ]
-    }
+    ]
   },
   "include": [
     "src/**/*.ts",
