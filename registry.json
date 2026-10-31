@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "plugins": [
+    {
+      "id": "notyra-toc",
+      "name": "Table of Contents / 目次",
+      "description": "Live headings, click-to-scroll navigation and configurable depth / 見出し一覧・クリック移動・深さ設定",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/notyra-plugins"
+    },
+    {
+      "id": "notyra-theme-blue",
+      "name": "Blue Theme / ブルーテーマ",
+      "description": "Ocean blue colors for light and dark modes / ライト・ダーク対応の青いカラーテーマ",
+      "author": "Yuma Shintani",
+      "repo": "yuma-shin/Notyra-Theme"
+    }
+  ]
+}
