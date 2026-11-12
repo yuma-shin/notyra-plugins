@@ -4,7 +4,7 @@
   "version": "1.0.3",
   "type": "module",
   "license": "MIT",
-  "packageManager": "pnpm@12.17.0",
+  "packageManager": "pnpm@12.18.0",
   "scripts": {
     "typecheck": "pnpm --filter notyra-toc --filter notyra-theme-* --fail-if-no-match run typecheck",
     "build": "pnpm --filter notyra-toc --filter notyra-theme-* --fail-if-no-match run build",

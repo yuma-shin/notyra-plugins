@@ -5,7 +5,7 @@
   "description": "Emerald theme for Notyra, with light and dark palettes",
   "author": "Yuma Shintani",
   "license": "MIT",
-  "packageManager": "pnpm@12.17.0",
+  "packageManager": "pnpm@12.18.0",
   "scripts": {
     "build": "node ../../scripts/validate-theme.mjs .",
     "typecheck": "node ../../scripts/validate-theme.mjs .",
